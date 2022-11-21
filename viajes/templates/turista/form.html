@@ -1,0 +1,16 @@
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="mb-3" style="margin-right: 8%; margin-left: 8%;">
+  {% for campo in form %}
+  <label class="form-label"><b>{{ campo.label }}</b></label>
+  <input type="{{ campo.field.widget.input_type }}" class="form-control" name="{{ campo.name }}" value="{{ campo.value | default:'' }}" autocomplete="off" required>
+  <br>
+  {% endfor %}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-secondary" style="width: 200px; margin-right: 1.5em;" href="{% url 'turista' %}">Cancelar</a>
+        <input class="btn btn-primary" style="width: 200px;" type="submit" value="Aceptar"/>
+    </div>
+</div>
+</form>
+<br>
